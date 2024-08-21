@@ -1,4 +1,4 @@
-' ---Format As For Reference Card Macro v1.0.0 - Stable Edition---
+' ---Format As For Reference Card Macro - Stable Edition - v1.0.0---
 ' Created on 2024-08-17.
 ' https://github.com/KSXia/Verbatim-Format-As-For-Reference-Card-Macro---Stable-Edition
 ' Thanks to Truf for creating and providing his "ForReference" macro, which this macro is partly based upon! You can find Truf's macros on his website at https://debate-decoded.ghost.io/leveling-up-verbatim/
