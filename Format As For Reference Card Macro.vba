@@ -1,7 +1,7 @@
 ' ---Format As For Reference Card Macro - Stable Edition - v1.0.2---
 ' Updated on 2024-09-01.
 ' https://github.com/KSXia/Verbatim-Format-As-For-Reference-Card-Macro---Stable-Edition
-' Thanks to Truf for creating and providing his "ForReference" macro, which this macro is partly based upon! You can find Truf's macros on his website at https://debate-decoded.ghost.io/leveling-up-verbatim/
+' Thanks to Truf for creating and providing his "ForReference" macro, which the idea for this macro came from! You can find Truf's macros on his website at https://debate-decoded.ghost.io/leveling-up-verbatim/
 Sub FormatAsForReferenceCard()
 	' Check if any text is selected.
 	If Selection.Type = wdSelectionIP Then
