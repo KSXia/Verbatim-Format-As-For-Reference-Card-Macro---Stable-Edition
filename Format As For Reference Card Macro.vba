@@ -12,14 +12,48 @@ Sub FormatAsForReferenceCard()
 	Dim SelectionRange As Range
 	Set SelectionRange = Selection.Range
 	
-	Dim Character As Range
-	
-	' Loop through each character in the selected text.
-	For Each Character In SelectionRange.Characters
-		' Check if the character is highlighted.
-		If Character.HighlightColorIndex <> wdNoHighlight Then
-			' If the character is highlighted, change the highlight color to light gray.
-			Character.HighlightColorIndex = wdGray25
+	If Len(SelectionRange.Text) > 1 Then
+		' Record the user's default highlight color.
+		Dim UserDefaultHighlightColor As Long
+		UserDefaultHighlightColor = Options.DefaultHighlightColorIndex
+		
+		' Set the default highlight color to the "For Reference" highlight color.
+		Options.DefaultHighlightColorIndex = wdGray25
+		
+		' Find all highlighted characters and replace their highlight color with the default highlight color, which should be set to the "For Reference" highlight color.
+		With SelectionRange.Find
+			' Specify find criteria.
+			.ClearFormatting
+			.MatchWildcards = True
+			.Text = "*"
+			.Highlight = True
+			
+			' Ensure other find options are set to their defaults.
+			.MatchCase = False
+			.MatchWholeWord = False
+			.MatchSoundsLike = False
+			.MatchAllWordForms = False
+			.MatchPrefix = False
+			.MatchSuffix = False
+			.MatchPhrase = False
+			
+			' Specify replacement criteria.
+			.Replacement.ClearFormatting
+			.Replacement.Text = ""
+			.Replacement.Highlight = True
+			
+			' Set execution properties.
+			.Format = True
+			.Forward = True
+			.Wrap = wdFindStop
+			.Execute Replace:=wdReplaceAll
+		End With
+		
+		' Reset the default highlight color back to the user's default highlight color.
+		Options.DefaultHighlightColorIndex = UserDefaultHighlightColor
+	ElseIf Len(SelectionRange.Text) = 1 Then
+		If SelectionRange.HighlightColorIndex <> wdNoHighlight Then
+			SelectionRange.HighlightColorIndex = wdGray25
 		End If
-	Next Character
+	End If
 End Sub
