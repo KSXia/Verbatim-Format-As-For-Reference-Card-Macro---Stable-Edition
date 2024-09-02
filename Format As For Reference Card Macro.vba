@@ -9,13 +9,13 @@ Sub FormatAsForReferenceCard()
         Exit Sub
 	End If
 	
-	Dim SelectedText As Range
-	Set SelectedText = Selection.Range
+	Dim SelectionRange As Range
+	Set SelectionRange = Selection.Range
 	
 	Dim Character As Range
 	
 	' Loop through each character in the selected text.
-	For Each Character In SelectedText.Characters
+	For Each Character In SelectionRange.Characters
 		' Check if the character is highlighted.
 		If Character.HighlightColorIndex <> wdNoHighlight Then
 			' If the character is highlighted, change the highlight color to light gray.
